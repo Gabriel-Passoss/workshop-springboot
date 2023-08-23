@@ -5,6 +5,7 @@ import com.kooujin.course.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -16,5 +17,10 @@ public class UserService {
 
     public List<User> findAll() {
         return userRepository.findAll();
+    }
+
+    public Object findById(Long id) {
+        Optional<User> user =  userRepository.findById(id);
+        return user.get();
     }
 }
